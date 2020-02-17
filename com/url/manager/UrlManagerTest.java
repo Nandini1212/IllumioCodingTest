@@ -5,12 +5,16 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class UrlManagerTest {
 	UrlParser urlParser = new UrlParser();
 	UrlStore urlStore = new UrlStore();
+	UrlManager urlManager = new UrlManager();
+	
 	@Test	
 	public void testValidLongUrl() throws Exception {		
 		boolean result = urlParser.isValid("https://www.google.com/search?sxsrf=ACYBGNQ1W-iqqZQzchPAN4LDScmUMtExEQ%3A1581473929021&ei=iWBDXqJnydv6BMyBq5gD&q=+get+all+employees+java&oq=+get+all+employees+java&gs_l=psy-ab.3..0i8i30.8639.8639..8934...0.1..0.82.82.1......0....1..gws-wiz.......0i71.KlXKwa80dYg&ved=0ahUKEwjiz4q--crnAhXJrZ4KHczACjMQ4dUDCAs&uact=5");		
@@ -64,6 +68,28 @@ public class UrlManagerTest {
 		urlStore.update("https://www.facebook.com/Learn-the-Net-330002341216/");		
 		String value = urlStore.get();
 		assertNotNull("Returned null for existing url", value);	
+	}
+	@Test
+	public void testStoreUrl() throws IOException{
+		urlStore.update("https://www.geeksforgeeks.org/java/");
+		
+	}
+	@Test
+	public void testStoreMethodGet() throws IOException {
+		String value = urlStore.get();
+		Assert.assertNotNull("Returned not null value", value);
+		
+	}
+	@Test
+	public void testScanAndStoreUrl() throws Exception {
+		boolean value = urlManager.scanAndStoreUrl("https://www.geeksforgeeks.org/", 1);
+		Assert.assertEquals(value, true);
+		//urlManager.scanAndStoreUrl("https://www.geeksforgeeks.org/java/", 2);
+	}
+	@Test
+	public void testGet() throws IOException {
+		String value = urlManager.get();
+		assertNotNull("Returned not null value", value);
 	}
 	
 }
