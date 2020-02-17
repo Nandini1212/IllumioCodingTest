@@ -24,6 +24,12 @@ Usage:
 	java com.url.manager.UrlUtility - prints the usage of the utility
 	java com.url.manager.UrlUtility update - update the URL in the store (max 3 retries)
 	java com.url.manager.UrlUtility get - retrieves the URL stored in the store
+	
+Created a jar file to run from a command line. Issue the command java -jar CodingTest.jar 
+
+Usage : 
+	java -jar CodingTest.jar update
+	java -jar CodingTest.jar get
 
 Tests:
 
