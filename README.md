@@ -27,4 +27,4 @@ Usage:
 
 Tests:
 
-We are using the Junit framework for the tests. All the tests are available in the file "UrlManagerTest". There are tests for each of the modules for different combinations of inputs.
+I used the Junit framework for the tests. All the tests are available in the file "UrlManagerTest". There are tests for each of the modules for different combinations of inputs.
