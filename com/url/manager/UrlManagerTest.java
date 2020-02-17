@@ -91,5 +91,11 @@ public class UrlManagerTest {
 		String value = urlManager.get();
 		assertNotNull("Returned not null value", value);
 	}
+	@Test
+	public void testScanAndStoreUrlWithExceededTry() throws Exception {
+		boolean value = urlManager.scanAndStoreUrl("https://www.geeksforgeeks.org/java/", 4);
+		System.out.println(value);
+		Assert.assertEquals(value, false);
+	}
 	
 }
