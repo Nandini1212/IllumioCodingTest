@@ -18,6 +18,9 @@ public class UrlManager {
 	}
 	
 	public boolean scanAndStoreUrl(final String url, final int retry) throws IOException {
+		if(retry > 3) {
+			return false;
+		}
 		if(urlParser.isValid(url)) {
 			urlStore.update(url);
 			return true;
